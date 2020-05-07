@@ -1,0 +1,2 @@
+module UnitTrustEntriesHelper
+end

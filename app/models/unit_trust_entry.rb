@@ -1,0 +1,2 @@
+class UnitTrustEntry < ApplicationRecord
+end

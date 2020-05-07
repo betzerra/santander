@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_020149) do
+ActiveRecord::Schema.define(version: 2020_05_07_020945) do
+
+  create_table "unit_trust_entries", force: :cascade do |t|
+    t.date "date"
+    t.float "value"
+    t.float "last_day"
+    t.float "last_30_days"
+    t.float "last_90_days"
+    t.float "last_12_months"
+    t.integer "unit_trust_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["unit_trust_id"], name: "index_unit_trust_entries_on_unit_trust_id"
+  end
 
   create_table "unit_trusts", force: :cascade do |t|
     t.string "name"

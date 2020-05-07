@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :unit_trust_entries
   resources :unit_trusts
   get 'fci/all'
   get 'fci/detail'

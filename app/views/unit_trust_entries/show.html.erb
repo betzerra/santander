@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @unit_trust_entry.date %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @unit_trust_entry.value %>
+</p>
+
+<p>
+  <strong>Last day:</strong>
+  <%= @unit_trust_entry.last_day %>
+</p>
+
+<p>
+  <strong>Last 30 days:</strong>
+  <%= @unit_trust_entry.last_30_days %>
+</p>
+
+<p>
+  <strong>Last 90 days:</strong>
+  <%= @unit_trust_entry.last_90_days %>
+</p>
+
+<p>
+  <strong>Last 12 months:</strong>
+  <%= @unit_trust_entry.last_12_months %>
+</p>
+
+<p>
+  <strong>Unit trust:</strong>
+  <%= @unit_trust_entry.unit_trust_id %>
+</p>
+
+<%= link_to 'Edit', edit_unit_trust_entry_path(@unit_trust_entry) %> |
+<%= link_to 'Back', unit_trust_entries_path %>

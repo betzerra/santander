@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-05-06
+  value: 1.5
+  last_day: 1.5
+  last_30_days: 1.5
+  last_90_days: 1.5
+  last_12_months: 1.5
+  unit_trust_id: 1
+
+two:
+  date: 2020-05-06
+  value: 1.5
+  last_day: 1.5
+  last_30_days: 1.5
+  last_90_days: 1.5
+  last_12_months: 1.5
+  unit_trust_id: 1
