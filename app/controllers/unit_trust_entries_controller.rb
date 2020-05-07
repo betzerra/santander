@@ -61,6 +61,29 @@ class UnitTrustEntriesController < ApplicationController
     end
   end
 
+  # GET /unit_trust_entries/fetch
+
+  def fetch
+    FciHelper.fetch.each do |i|
+      unit_trust = UnitTrust.where(name: i[:name]).first
+      next if unit_trust.nil?
+
+      UnitTrustEntry.create(
+        value: i[:value],
+        date: Time.now,
+        last_day: i[:last_day],
+        last_30_days: i[:last_30_days],
+        last_90_days: i[:last_90_days],
+        last_12_months: i[:last_12_months],
+        unit_trust_id: unit_trust.id
+      )
+    end
+
+    respond_to do |format|
+      format.html { redirect_to unit_trust_entries_url, notice: 'woot' }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_unit_trust_entry
