@@ -1,0 +1,2 @@
+class UnitTrust < ApplicationRecord
+end
