@@ -1,5 +1,5 @@
 <h1>Fondos Santander</h1>
-<p>Última actualización: <%= @time %>
+<p>Última actualización: <%= @last_update %>
 
 <table>
   <tr>
@@ -13,12 +13,12 @@
 
   <% @list.each do |item| %>
   <tr>
-    <td> <%=item[:name]%> </td>
-    <td> <%=item[:value]%> </td>
-    <td> <%=item[:last_day]%> </td>
-    <td> <%=item[:last_30_days]%> </td>
-    <td> <%=item[:last_90_days]%> </td>
-    <td> <%=item[:last_12_months]%> </td>
+    <td> <%=item.unit_trust.name %> </td>
+    <td> <%=item.value %> </td>
+    <td> <%=item.last_day %> </td>
+    <td> <%=item.last_30_days %> </td>
+    <td> <%=item.last_90_days %> </td>
+    <td> <%=item.last_12_months %> </td>
   </tr>
   <%end%>
 </table>
