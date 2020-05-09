@@ -1,26 +1,30 @@
 <h1>Fondos Santander</h1>
-<p>Última actualización: <%= @last_update %>
+<p><b>Última actualización:</b> <%= @last_update %>
 
-<table>
-  <tr>
-    <td>Nombre</td>
-    <td>Valor</td>
-    <td>Var. diaria</td>
-    <td>Últimos 30 días</td>
-    <td>Últimos 90 días</td>
-    <td>Últimos 12 meses</td>
-  </tr>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Var. diaria</th>
+      <th scope="col">Últimos 30 días</th>
+      <th scope="col">Últimos 90 días</th>
+      <th scope="col">Últimos 12 meses</th>
+    </tr>
+  </thead>
 
-  <% @list.each do |item| %>
-  <tr>
-    <td> <%= link_to item.unit_trust.name, "detail/#{item.unit_trust.id}" %> </td>
-    <td> <%=item.value %> </td>
-    <td> <%=item.last_day %> </td>
-    <td> <%=item.last_30_days %> </td>
-    <td> <%=item.last_90_days %> </td>
-    <td> <%=item.last_12_months %> </td>
-  </tr>
-  <%end%>
+  <tbody>
+    <% @list.each do |item| %>
+    <tr>
+      <th scope="row"><%= link_to item.unit_trust.name, "detail/#{item.unit_trust.id}" %></th>
+      <td> <%=item.value %> </td>
+      <td> <%=item.last_day %> </td>
+      <td> <%=item.last_30_days %> </td>
+      <td> <%=item.last_90_days %> </td>
+      <td> <%=item.last_12_months %> </td>
+    </tr>
+    <%end%>
+  </tbody>
 </table>
 
 <p>Los valores se toman de la <a href="https://www.santander.com.ar/banco/online/personas/inversiones/super-fondos/rendimientos">página de Santander</a></p>

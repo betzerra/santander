@@ -1,23 +1,27 @@
 <h1><%= @unit_trust.name %></h1>
 
-<table>
-  <tr>
-    <td>Fecha</td>
-    <td>Valor</td>
-    <td>Var. diaria</td>
-    <td>Últimos 30 días</td>
-    <td>Últimos 90 días</td>
-    <td>Últimos 12 meses</td>
-  </tr>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Fecha</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Var. diaria</th>
+      <th scope="col">Últimos 30 días</th>
+      <th scope="col">Últimos 90 días</th>
+      <th scope="col">Últimos 12 meses</th>
+    </tr>
+  <thead>
 
-  <% @list.each do |item| %>
-  <tr>
-    <td> <%=item.date %> </td>
-    <td> <%=item.value %> </td>
-    <td> <%=item.last_day %> </td>
-    <td> <%=item.last_30_days %> </td>
-    <td> <%=item.last_90_days %> </td>
-    <td> <%=item.last_12_months %> </td>
-  </tr>
-  <%end%>
+  <tbody>
+    <% @list.each do |item| %>
+    <tr>
+      <th scope="row"> <%=item.date %> </th>
+      <td> <%=item.value %> </td>
+      <td> <%=item.last_day %> </td>
+      <td> <%=item.last_30_days %> </td>
+      <td> <%=item.last_90_days %> </td>
+      <td> <%=item.last_12_months %> </td>
+    </tr>
+    <%end%>
+  </tbody>
 </table>
