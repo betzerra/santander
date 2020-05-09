@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     end
   end
   resources :unit_trusts
-  get 'utf/all'
-  get 'utf/detail/:id', to: 'utf#detail'
+  get '', to: 'utf#all'
+  get 'detail/:id', to: 'utf#detail'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
