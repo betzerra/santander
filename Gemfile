@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'faraday'
 gem 'nokogiri'
 gem 'jquery-rails'
+gem 'mysql2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -28,10 +29,6 @@ gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
-group :production do
-  gem 'mysql2'
-end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
