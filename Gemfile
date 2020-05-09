@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'faraday'
 gem 'nokogiri'
 gem 'bootstrap'
+gem 'bootstrap-sass'
 gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
