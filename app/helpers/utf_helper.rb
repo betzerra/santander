@@ -1,4 +1,4 @@
-module FciHelper
+module UtfHelper
 
   def self.format_number(number)
     number.tr! '.', ''
@@ -29,11 +29,11 @@ module FciHelper
 
       item_entry = {
         name: row_description.strip,
-        value: FciHelper.format_number(row.css('td')[3].text),
-        last_day: FciHelper.format_number(row.css('td')[4].text),
-        last_30_days: FciHelper.format_number(row.css('td')[5].text),
-        last_90_days: FciHelper.format_number(row.css('td')[6].text),
-        last_12_months: FciHelper.format_number(row.css('td')[7].text)
+        value: UtfHelper.format_number(row.css('td')[3].text),
+        last_day: UtfHelper.format_number(row.css('td')[4].text),
+        last_30_days: UtfHelper.format_number(row.css('td')[5].text),
+        last_90_days: UtfHelper.format_number(row.css('td')[6].text),
+        last_12_months: UtfHelper.format_number(row.css('td')[7].text)
       }
 
       list << item_entry
