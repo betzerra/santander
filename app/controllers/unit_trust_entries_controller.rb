@@ -64,7 +64,7 @@ class UnitTrustEntriesController < ApplicationController
   # GET /unit_trust_entries/fetch
 
   def fetch
-    FciHelper.fetch.each do |i|
+    UtfHelper.fetch.each do |i|
       unit_trust = UnitTrust.where(name: i[:name]).first
       next if unit_trust.nil?
 
