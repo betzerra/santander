@@ -1,1 +1,3 @@
-https://github.com/heroku/heroku-buildpack-nodejs.gitv171
+https://github.com/gaffneyc/heroku-buildpack-jemalloc.git
+https://github.com/heroku/heroku-buildpack-nodejs.git
+https://github.com/heroku/heroku-buildpack-ruby.git
