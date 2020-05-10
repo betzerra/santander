@@ -9,15 +9,9 @@ module UtfHelper
     number.to_f
   end
 
-  def self.fetch
+  def self.fetch(desired_items)
     response = Faraday.new.get 'https://www.santander.com.ar/ConectorPortalStore/Rendimiento'
     html = Nokogiri::HTML(response.body)
-
-    desired_items = [
-      'SUPER AHORRO $ CUOTA A',
-      'SUPER AHORRO PLUS CUOTA A',
-      'SUPERGESTION MIX VI CUOTA A'
-    ]
 
     list = []
 
@@ -25,10 +19,14 @@ module UtfHelper
       row_description = row.css('table tr td').text
 
       # ignore items that doesn't contain desired_items
-      next unless desired_items.any? { |i| row_description.include?(i) }
+      match = desired_items
+              .select { |i| row_description.include?(i) }
+              .first
+
+      next if match.nil?
 
       item_entry = {
-        name: row_description.strip,
+        name: match,
         value: UtfHelper.format_number(row.css('td')[3].text),
         last_day: UtfHelper.format_number(row.css('td')[4].text),
         last_30_days: UtfHelper.format_number(row.css('td')[5].text),

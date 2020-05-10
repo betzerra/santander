@@ -64,7 +64,9 @@ class UnitTrustEntriesController < ApplicationController
   # GET /unit_trust_entries/fetch
 
   def fetch
-    UtfHelper.fetch.each do |i|
+    desired_items = UnitTrust.all.map(&:name)
+
+    UtfHelper.fetch(desired_items).each do |i|
       unit_trust = UnitTrust.where(name: i[:name]).first
       next if unit_trust.nil?
 
