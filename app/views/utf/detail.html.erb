@@ -35,12 +35,12 @@
 
       // The data for our dataset
       data: {
-          labels: <%= raw @list.map { |i| i.date.to_s } %>,
+          labels: <%= raw @graph_data.map { |i| i.date.to_s } %>,
           datasets: [{
               label: '<%= @unit_trust.name %>',
               backgroundColor: 'rgb(255, 99, 132)',
               borderColor: 'rgb(255, 99, 132)',
-              data: <%= @list.map { |i| i.value } %>
+              data: <%= @graph_data.map { |i| i.value } %>
           }]
       },
       options: {}

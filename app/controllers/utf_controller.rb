@@ -10,5 +10,6 @@ class UtfController < ApplicationController
   def detail
     @unit_trust = UnitTrust.find(params[:id])
     @list = UnitTrustEntry.where(unit_trust_id: params[:id]).order(date: :desc)
+    @graph_data = @list.reverse
   end
 end
