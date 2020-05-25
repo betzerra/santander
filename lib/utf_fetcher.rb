@@ -27,11 +27,11 @@ module UtfFetcher
 
       item_entry = {
         name: match,
-        value: UtfHelper.format_number(row.css('td')[3].text),
-        last_day: UtfHelper.format_number(row.css('td')[4].text),
-        last_30_days: UtfHelper.format_number(row.css('td')[5].text),
-        last_90_days: UtfHelper.format_number(row.css('td')[6].text),
-        last_12_months: UtfHelper.format_number(row.css('td')[7].text)
+        value: UtfFetcher.format_number(row.css('td')[3].text),
+        last_day: UtfFetcher.format_number(row.css('td')[4].text),
+        last_30_days: UtfFetcher.format_number(row.css('td')[5].text),
+        last_90_days: UtfFetcher.format_number(row.css('td')[6].text),
+        last_12_months: UtfFetcher.format_number(row.css('td')[7].text)
       }
 
       list << item_entry
@@ -43,7 +43,7 @@ module UtfFetcher
   def self.save_new_entries()
     desired_items = UnitTrust.all.map(&:name)
 
-    UtfHelper.fetch(desired_items).each do |i|
+    UtfFetcher.fetch(desired_items).each do |i|
       unit_trust = UnitTrust.where(name: i[:name]).first
       next if unit_trust.nil?
 

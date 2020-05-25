@@ -7,17 +7,17 @@ class UtfController < ApplicationController
     @list = UnitTrustEntry.where(id: latest_ids)
 
     # Getting a list for all Unit Trusts
-    last_week = UnitTrustEntry
-                .where('date BETWEEN ? AND ?', Date.today - 15, Date.today)
-                .order(date: :desc)
-                .group(:date, :unit_trust_id)
-                .reverse
+    last_period = UnitTrustEntry
+                  .where('date BETWEEN ? AND ?', Date.today - 15, Date.today)
+                  .order(date: :desc)
+                  .group(:date, :unit_trust_id)
+                  .reverse
 
     @graph_data = []
     UnitTrust.all.each do |e|
       item = { name: e.name }
 
-      values = last_week.select { |i| i.unit_trust_id == e.id }
+      values = last_period.select { |i| i.unit_trust_id == e.id }
       item[:values] = values.map(&:last_day)
       item[:dates] = values.map(&:date)
       item[:color] = e.color
