@@ -2,6 +2,7 @@ load 'lib/utf_fetcher.rb'
 
 class UnitTrustEntriesController < ApplicationController
   before_action :set_unit_trust_entry, only: [:show, :edit, :update, :destroy]
+  before_action :check_for_lockup
 
   # GET /unit_trust_entries
   # GET /unit_trust_entries.json

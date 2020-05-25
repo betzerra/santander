@@ -19,6 +19,7 @@ gem 'faraday'
 gem 'nokogiri'
 gem 'jquery-rails'
 gem 'mysql2'
+gem 'lockup'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

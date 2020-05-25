@@ -1,5 +1,6 @@
 class UnitTrustsController < ApplicationController
   before_action :set_unit_trust, only: [:show, :edit, :update, :destroy]
+  before_action :check_for_lockup
 
   # GET /unit_trusts
   # GET /unit_trusts.json
