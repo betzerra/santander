@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_020945) do
+ActiveRecord::Schema.define(version: 2020_05_25_063726) do
 
-  create_table "unit_trust_entries", force: :cascade do |t|
+  create_table "unit_trust_entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "date"
     t.float "value"
     t.float "last_day"
@@ -25,10 +25,12 @@ ActiveRecord::Schema.define(version: 2020_05_07_020945) do
     t.index ["unit_trust_id"], name: "index_unit_trust_entries_on_unit_trust_id"
   end
 
-  create_table "unit_trusts", force: :cascade do |t|
+  create_table "unit_trusts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
+    t.integer "deposit_time"
   end
 
 end

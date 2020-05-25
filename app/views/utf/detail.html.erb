@@ -1,17 +1,40 @@
-<div class="header mt-md-5">
+<div class="header mt-5">
   <div class="header-body">
     <h1 class="header-title">
       <%= @unit_trust.name %>
     </h1>
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page"><%= link_to "Home", "/" %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= @unit_trust.name %></li>
+      </ol>
+    </nav>
   </div>
 </div>
 
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page"><%= link_to "Home", "/" %></li>
-    <li class="breadcrumb-item active" aria-current="page"><%= @unit_trust.name %></li>
-  </ol>
-</nav>
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-header-title">Descripción</h4>
+  </div>
+  <div class="card-body">
+    <div class="list-group list-group-flush">
+      <div class="list-group-item">
+        <%= @unit_trust.description %>
+      </div>
+      <div class="list-group-item">
+        <div class="row">
+          <div class="col">
+            Plazo de acreditación:
+          </div>
+          <div class="col-auto text-muted">
+            <%=UnitTrustsHelper.deposit_time_badge(@unit_trust.deposit_time).html_safe %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="card">
   <div class="card-body">

@@ -5,5 +5,15 @@
   <%= @unit_trust.name %>
 </p>
 
+<p>
+  <strong>Description:</strong>
+  <%= @unit_trust.description %>
+</p>
+
+<p>
+  <strong>Deposit Time:</strong>
+  <%= @unit_trust.deposit_time %>
+</p>
+
 <%= link_to 'Edit', edit_unit_trust_path(@unit_trust) %> |
 <%= link_to 'Back', unit_trusts_path %>
