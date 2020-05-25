@@ -1,40 +1,47 @@
-<p id="notice"><%= notice %></p>
+<div class="header mt-md-5">
+  <div class="header-body">
+    <h1 class="header-title">Unit Trust Entries</h1>
+  </div>
+</div>
 
-<h1>Unit Trust Entries</h1>
+<div class="alert alert-primary" role="alert" id="notice" style="display: <%= "none" if notice.blank? %>">
+  <%= notice %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Value</th>
-      <th>Last day</th>
-      <th>Last 30 days</th>
-      <th>Last 90 days</th>
-      <th>Last 12 months</th>
-      <th>Unit trust</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="card">
+  <div class="table-responsive mb-0">
+    <table class="table table-sm table-nowrap card-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Value</th>
+          <th>Last day</th>
+          <th>Last 30 days</th>
+          <th>Last 90 days</th>
+          <th>Last 12 months</th>
+          <th>Unit trust</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @unit_trust_entries.each do |unit_trust_entry| %>
+          <tr>
+            <td><%= unit_trust_entry.date %></td>
+            <td><%= unit_trust_entry.value %></td>
+            <td><%= unit_trust_entry.last_day %></td>
+            <td><%= unit_trust_entry.last_30_days %></td>
+            <td><%= unit_trust_entry.last_90_days %></td>
+            <td><%= unit_trust_entry.last_12_months %></td>
+            <td><%= unit_trust_entry.unit_trust_id %></td>
+            <td><%= link_to 'Show', unit_trust_entry %></td>
+            <td><%= link_to 'Edit', edit_unit_trust_entry_path(unit_trust_entry) %></td>
+            <td><%= link_to 'Destroy', unit_trust_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-  <tbody>
-    <% @unit_trust_entries.each do |unit_trust_entry| %>
-      <tr>
-        <td><%= unit_trust_entry.date %></td>
-        <td><%= unit_trust_entry.value %></td>
-        <td><%= unit_trust_entry.last_day %></td>
-        <td><%= unit_trust_entry.last_30_days %></td>
-        <td><%= unit_trust_entry.last_90_days %></td>
-        <td><%= unit_trust_entry.last_12_months %></td>
-        <td><%= unit_trust_entry.unit_trust_id %></td>
-        <td><%= link_to 'Show', unit_trust_entry %></td>
-        <td><%= link_to 'Edit', edit_unit_trust_entry_path(unit_trust_entry) %></td>
-        <td><%= link_to 'Destroy', unit_trust_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Unit Trust Entry', new_unit_trust_entry_path %> |
-<%= link_to 'Fetch', '/unit_trust_entries/fetch' %>
+<%= link_to 'New Unit Trust Entry', new_unit_trust_entry_path, { :class=>"btn btn-primary lift" } %>
+<%= link_to 'Fetch', '/unit_trust_entries/fetch', { :class=>"btn btn-secondary lift" } %>

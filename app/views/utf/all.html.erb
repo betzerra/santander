@@ -1,30 +1,50 @@
-<h1>Fondos Santander</h1>
-<p><b>Última actualización:</b> <%= @last_update %>
+<div class="header mt-md-5">
+  <div class="header-body">
 
-<table class="table table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Valor</th>
-      <th scope="col">Var. diaria</th>
-      <th scope="col">Últimos 30 días</th>
-      <th scope="col">Últimos 90 días</th>
-      <th scope="col">Últimos 12 meses</th>
-    </tr>
-  </thead>
+    <!-- Pretitle -->
+    <h6 class="header-pretitle">
+      Última actualización: <%= @last_update %>
+    </h6>
 
-  <tbody>
-    <% @list.each do |item| %>
-    <tr>
-      <th scope="row"><%= link_to item.unit_trust.name, "detail/#{item.unit_trust.id}" %></th>
-      <td> <%=item.value %> </td>
-      <td> <%=item.last_day %> </td>
-      <td> <%=item.last_30_days %> </td>
-      <td> <%=item.last_90_days %> </td>
-      <td> <%=item.last_12_months %> </td>
-    </tr>
-    <%end%>
-  </tbody>
-</table>
+    <!-- Title -->
+    <h1 class="header-title">
+      Fondos Santander
+    </h1>
 
-<p>Los valores se toman de la <a href="https://www.santander.com.ar/banco/online/personas/inversiones/super-fondos/rendimientos">página de Santander</a></p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="table-responsive mb-0">
+    <table class="table table-sm table-nowrap card-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Valor</th>
+          <th>Var. Diaria</th>
+          <th>Últimos 30 días</th>
+          <th>Últimos 90 días</th>
+          <th>Últimos 12 meses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @list.each do |item| %>
+        <tr>
+          <td>
+            <span>
+              <%= link_to item.unit_trust.name, "detail/#{item.unit_trust.id}" %>
+            </span>
+          </td>
+          <td> <%=item.value %> </td>
+          <td> <%=item.last_day %> </td>
+          <td> <%=item.last_30_days %> </td>
+          <td> <%=item.last_90_days %> </td>
+          <td> <%=item.last_12_months %> </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<p class="text-muted">Los valores se toman de la <a href="https://www.santander.com.ar/banco/online/personas/inversiones/super-fondos/rendimientos">página de Santander</a></p>

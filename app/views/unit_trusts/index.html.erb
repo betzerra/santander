@@ -1,27 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="header mt-md-5">
+  <div class="header-body">
+    <h1 class="header-title">Unit Trusts</h1>
+  </div>
+</div>
 
-<h1>Unit Trusts</h1>
+<div class="alert alert-primary" role="alert" id="notice" style="display: <%= "none" if notice.blank? %>">
+  <%= notice %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="card">
+  <div class="table-responsive mb-0">
+    <table class="table table-sm table-nowrap card-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @unit_trusts.each do |unit_trust| %>
-      <tr>
-        <td><%= unit_trust.name %></td>
-        <td><%= link_to 'Show', unit_trust %></td>
-        <td><%= link_to 'Edit', edit_unit_trust_path(unit_trust) %></td>
-        <td><%= link_to 'Destroy', unit_trust, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @unit_trusts.each do |unit_trust| %>
+          <tr>
+            <td><%= unit_trust.name %></td>
+            <td><%= link_to 'Show', unit_trust %></td>
+            <td><%= link_to 'Edit', edit_unit_trust_path(unit_trust) %></td>
+            <td><%= link_to 'Destroy', unit_trust, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<br>
-
-<%= link_to 'New Unit Trust', new_unit_trust_path %>
+<%= link_to 'New Unit Trust', new_unit_trust_path, { :class=>"btn btn-primary lift" } %>

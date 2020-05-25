@@ -1,4 +1,10 @@
-<h1><%= @unit_trust.name %></h1>
+<div class="header mt-md-5">
+  <div class="header-body">
+    <h1 class="header-title">
+      <%= @unit_trust.name %>
+    </h1>
+  </div>
+</div>
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
@@ -7,49 +13,57 @@
   </ol>
 </nav>
 
-<canvas id="chart" width="400" height="150" style="margin-bottom: 20px"></canvas>
+<div class="card">
+  <div class="card-body">
+    <canvas id="chart" height="100" width="400" class="chart-canvas"></canvas>
+  </div>
+</div>
+
 <script>
   var ctx = document.getElementById('chart').getContext('2d');
   var chart = new Chart(ctx, {
-      // The type of chart we want to create
-      type: 'line',
-
-      // The data for our dataset
-      data: {
-          labels: <%= raw @graph_data.map { |i| i.date.to_s } %>,
-          datasets: [{
-              label: '<%= @unit_trust.name %>',
-              backgroundColor: 'rgb(255, 99, 132)',
-              borderColor: 'rgb(255, 99, 132)',
-              data: <%= @graph_data.map { |i| i.value } %>
-          }]
-      },
-      options: {}
+    type: 'line',
+    options: {
+      legend: {
+        display: false
+      }
+    },
+    data: {
+        labels: <%= raw @graph_data.map { |i| i.date.to_s } %>,
+        datasets: [{
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgb(255, 99, 132)',
+            data: <%= @graph_data.map { |i| i.value } %>
+        }]
+    }
   });
 </script>
 
-<table class="table table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Fecha</th>
-      <th scope="col">Valor</th>
-      <th scope="col">Var. diaria</th>
-      <th scope="col">Últimos 30 días</th>
-      <th scope="col">Últimos 90 días</th>
-      <th scope="col">Últimos 12 meses</th>
-    </tr>
-  <thead>
-
-  <tbody>
-    <% @list.each do |item| %>
-    <tr>
-      <th scope="row"> <%=item.date %> </th>
-      <td> <%=item.value %> </td>
-      <td> <%=item.last_day %> </td>
-      <td> <%=item.last_30_days %> </td>
-      <td> <%=item.last_90_days %> </td>
-      <td> <%=item.last_12_months %> </td>
-    </tr>
-    <%end%>
-  </tbody>
-</table>
+<div class="card">
+  <div class="table-responsive mb-0">
+    <table class="table table-sm table-nowrap card-table">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Valor</th>
+          <th>Var. Diaria</th>
+          <th>Últimos 30 días</th>
+          <th>Últimos 90 días</th>
+          <th>Últimos 12 meses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @list.each do |item| %>
+        <tr>
+          <th scope="row"> <%=item.date %> </th>
+          <td> <%=item.value %> </td>
+          <td> <%=item.last_day %> </td>
+          <td> <%=item.last_30_days %> </td>
+          <td> <%=item.last_90_days %> </td>
+          <td> <%=item.last_12_months %> </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>
