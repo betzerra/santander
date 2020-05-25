@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_020945) do
+ActiveRecord::Schema.define(version: 2020_05_25_060630) do
 
   create_table "unit_trust_entries", force: :cascade do |t|
     t.date "date"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_020945) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "description"
+    t.integer "deposit_time"
   end
 
 end
