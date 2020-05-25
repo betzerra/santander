@@ -20,6 +20,7 @@
       <thead>
         <tr>
           <th>Nombre</th>
+          <th>Acreditación</th>
           <th>Valor</th>
           <th>Var. Diaria</th>
           <th>Últimos 30 días</th>
@@ -35,6 +36,7 @@
               <%= link_to item.unit_trust.name, "detail/#{item.unit_trust.id}" %>
             </span>
           </td>
+          <td> <%=UnitTrustsHelper.deposit_time_badge(item.unit_trust.deposit_time).html_safe %> </td>
           <td> <%=item.value %> </td>
           <td> <%=item.last_day %> </td>
           <td> <%=item.last_30_days %> </td>
