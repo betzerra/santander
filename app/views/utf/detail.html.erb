@@ -54,8 +54,8 @@
     data: {
         labels: <%= raw @graph_data.map { |i| i.date.to_s } %>,
         datasets: [{
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: "#<%= @unit_trust.color %>",
+            backgroundColor: "#<%= @unit_trust.color %>",
             data: <%= @graph_data.map { |i| i.value } %>
         }]
     }

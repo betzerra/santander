@@ -69,6 +69,6 @@ class UnitTrustsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def unit_trust_params
-      params.require(:unit_trust).permit(:name, :description, :deposit_time)
+      params.require(:unit_trust).permit(:name, :description, :deposit_time, :color)
     end
 end
