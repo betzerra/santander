@@ -49,4 +49,35 @@
   </div>
 </div>
 
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-header-title">Variación Diaria</h4>
+  </div>
+  <div class="card-body">
+    <canvas id="chart" height="100" width="400" class="chart-canvas"></canvas>
+  </div>
+</div>
+
+<script>
+  var ctx = document.getElementById('chart').getContext('2d');
+  var chart = new Chart(ctx, {
+    type: 'line',
+    options: {},
+    data: {
+      labels: <%= raw @graph_data.first[:dates].map {|i| i.to_s } %>,
+      datasets: [
+      <% @graph_data.each do |item| %>
+      {
+        label: "<%= item[:name] %>",
+        fill: false,
+        borderColor: "#<%= item[:color] %>",
+        backgroundColor: "#<%= item[:color] %>",
+        data: <%= item[:values] %>
+      },
+      <%end%>
+      ]
+    }
+  });
+</script>
+
 <p class="text-muted">Los valores se toman de la <a href="https://www.santander.com.ar/banco/online/personas/inversiones/super-fondos/rendimientos">página de Santander</a></p>
