@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'disclaimer', to: 'site#disclaimer'
+  get 'about', to: 'site#about'
+
   mount Lockup::Engine, at: '/lockup'
 
   resources :unit_trust_entries do
